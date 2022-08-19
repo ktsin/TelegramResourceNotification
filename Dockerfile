@@ -11,5 +11,6 @@ RUN dotnet publish "TelegramResourceNotification.csproj" -c Release -o /app/publ
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0
 WORKDIR /app
+EXPOSE 6000
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TelegramResourceNotification.dll"]
